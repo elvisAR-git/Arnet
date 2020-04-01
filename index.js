@@ -19,8 +19,8 @@ const server = http.createServer(
                 }
             })
         }
-        if(req.url.includes('styles')){
-            console.log(req.url)
+        if(req.url.includes('styles') || req.url.includes('images') || req.url.includes('js')){
+            console.log('[GET...' + req.url + '] from' + req.socket.remoteAddress)
             file = req.url.split('/')
             file = file.slice(-1).pop()
             

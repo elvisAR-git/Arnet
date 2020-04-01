@@ -6,19 +6,28 @@
     <title>Arnet</title>
 </head>
 <link rel="stylesheet" href="../styles/index.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="../js/home.js"></script>
 <body>
-    <nav>
-        <h2>ARnet &copy;</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto ex rerum expedita quaerat possimus deserunt iste quidem quae, reprehenderit atque tenetur, itaque quod? Maxime nobis exercitationem iusto quod eaque suscipit!</p>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Pages</a></li>
-            <li><a href="#">About</a></li>
-        </ul>
-        <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique officiis tempora, porro doloremque sequi, deserunt molestiae a minus, nobis nesciunt maxime! Nostrum, dolor cupiditate libero reiciendis fuga fugiat? Velit, fugit?
-        </p>
-        <small>today at 10:30 am</small>
-    </nav>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Arnet</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="#">Products</a>
+            <a class="nav-item nav-link" href="#">Career</a>
+            <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </div>
+          <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+      <!-- carousel -->
+      <img src="../images/main.jpg" alt="">
 </body>
 </html>
