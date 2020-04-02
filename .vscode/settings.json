@@ -1,0 +1,7 @@
+{
+    "jshint.config": "jshint.config",
+    "jshint.lintHTML": true,
+    "jshint.reportWarningsAsErrors": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true
+}

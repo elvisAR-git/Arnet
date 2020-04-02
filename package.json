@@ -9,7 +9,8 @@
   },
   "author": "Elvis Moraa",
   "license": "ISC",
-  "esversion": 6
+  "esversion": 6,
+  "devDependencies": {
+    "ws": "3.3.2"
+  }
 }
-
-
