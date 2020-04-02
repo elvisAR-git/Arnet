@@ -6,6 +6,7 @@ const EventEmitter = require('events')
 
 class MediaHandler extends EventEmitter{
     getStyleOr404(filename){
+        this.setMaxListeners(10000)
         // serves images
         if (filename.includes('.jpg') || filename.includes('.png') || filename.includes('.svg') || filename.includes('.jpeg') ){
             fs.readFile(IMAGE_DIR + filename,(err, data)=>{
