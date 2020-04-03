@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="../styles/index.css">
+
+<body>
+    <!-- Contenedor Principal -->
+    <div class="comments-container">
+        <h1>Ageline | Elvis <a href="http://creaticode.com">chat archive</a></h1>
+        <p>
+            <b>
+                Yeeeey! you opened it
+            </b>
+        </p>
+        <p>
+            This document contains converstaions dating from April 23rd 2018, i have been saving this for a while, which
+            is probably weird but it was like my way of holding on to our history, however scanty it was. I hope you
+            enjoy this messages as they may remind you off a lot.
+            I created a small web-app to help convert the bare text file into chat bubbles, thats what the 'ANGIE'
+            folder was for on my desktop.
+        </p>
+        <br>
+        <b>
+            Why save them for this long?
+        </b>
+        <p>
+            I love you
+        </p>
+        <b>
+            How many messages are here?
+        </b>
+        <p>
+            more than 3,500, so don't try to read them all at once.
+        </p>
+
+        <br>
+        <hr>
+        <br>
+        <div class="testimonial card">
+            <div class="card-body">
+                <h6>
+                    4/23/18, 00:32 - Messages to this chat and calls are now secured with end-to-end encryption. Tap for
+                    more
+                    info.
+                </h6>
+            </div>
+        </div>
+        <ul id="comments-list" class="comments-list">
+            <li id="parent">
+            </li>
+
+        </ul>
+        <p>
+            <p>
+                Well, am sorry they end here, if you reached this point, thank you!
+            </p>
+        </p>
+    </div>
+</body>
+
+
+<script>
+    xhr = new XMLHttpRequest()
+    xhr.open('GET', '/fetch/', true)
+    xhr.onload = function () {
+        if (this.status == 200) {
+            data = JSON.parse(this.responseText)
+            data.forEach((element) => {
+                elvis = false
+                if (element.message.includes('Elvis.:')) {
+                    elvis = true
+                    element.message = element.message.replace('- Elvis.:', ',')
+                } else {
+                    elvis = false
+                    element.message = element.message.replace(' - My Good Lady 😎:', ',')
+                }
+                chat_view = document.getElementById('parent')
+                bubble = document.createElement('div')
+                bubble.classList.add("comment-main-level")
+
+                avatar_box = document.createElement('div')
+                avatar_box.classList.add("comment-avatar")
+                avatar = document.createElement("img")
+                if (elvis) {
+                    avatar.src = "/images/elvis.svg"
+                } else {
+                    avatar.src = "/images/angel.svg"
+
+                }
+                // avatar box
+                avatar_box.appendChild(avatar)
+                bubble.appendChild(avatar_box)
+
+                comment_box = document.createElement('div')
+                comment_box.classList.add("comment-box")
+
+                comment_head = document.createElement('div')
+                comment_head.classList.add("comment-head")
+                user_name = document.createElement('h6')
+                user_name.classList.add("comment-name")
+                user_name.classList.add("by-author")
+                comment_head.appendChild(user_name)
+                // comment head
+                comment_box.appendChild(comment_head)
+
+                comment_content = document.createElement('div')
+                comment_content.classList.add('comment-content')
+
+                // comment content
+                user_name.innerHTML = element.sender
+                comment_content.innerHTML = element.message
+                comment_box.appendChild(comment_content)
+
+                // append everything to bubble
+
+                bubble.appendChild(comment_box)
+
+                chat_view.appendChild(bubble)
+                br = document.createElement('br')
+                chat_view.appendChild(br)
+
+            })
+
+
+        }
+    }
+    xhr.send()
+</script>
+
+</html>
